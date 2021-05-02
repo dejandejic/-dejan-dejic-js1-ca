@@ -1,17 +1,19 @@
 const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
-const resultContainer = document.querySelector(".drinksMenu");
+const resultContainer = document.querySelector(".coctailMenu");
 
-async function fetchDrinks() {
+async function fetchCoctails() {
     try{
     const response = await fetch(url);
     const json = await response.json();
 
+    resultContainer.innerHTML = "";
+
     console.log(json);
 
-    const drinksMenu = json.drinks;
+    const coctailMenu = json.drinks;
 
-  
-    drinksMenu.forEach(function(result) {
+        
+    coctailMenu.forEach(function(result) {
         resultContainer.innerHTML += `<div class="information">
                                       <a href="details.html?id=${result.idDrink}">
                                         <b>Drink:</b>${result.strDrink}
@@ -26,4 +28,4 @@ async function fetchDrinks() {
 }
 }
 
-fetchDrinks();
+fetchCoctails();

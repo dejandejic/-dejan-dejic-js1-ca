@@ -9,9 +9,9 @@ const adress = document.querySelector("#adress");
 const adressError = document.querySelector("#adressError");
 
 
-
 function validateForm(){
     event.preventDefault();
+
 
     if(chechkLength(firstName.value, 0) === true) {
         nameError.style.display = "none";

@@ -68,13 +68,13 @@ h1 {
   background-color: #595959;
   text-align: center;
 }
-/*
+
 .loader {
-  border: 10px solid burlywood;
-  border-top: 10px solid black;
+  border: 10px solid #d9a9bf;
+  border-top: 10px solid #595959;
   border-radius: 50%;
-  width: 115px;
-  height: 115px;
+  width: 100px;
+  height: 100px;
   margin-left: 50%;
   animation: spin 2s linear infinite;
 }
@@ -87,9 +87,6 @@ h1 {
     transform: rotate(360deg);
   }
 }
-*/
-
-/*---------Display-------*/
 
 .contact-container {
   padding: 15rem;

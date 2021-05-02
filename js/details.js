@@ -1,4 +1,4 @@
-const detailsContainer = document.querySelector(".drinks-details");
+const detailsContainer = document.querySelector(".coctailDetails");
 
 const queryString = document.location.search;
 console.log(queryString);
@@ -9,18 +9,18 @@ console.log(params);
 const id = params.get("id");
 console.log(id);
 
-const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + id;
+const url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + id;
 console.log(url);
 
 
-async function drinkId() {
+async function coctailId() {
 
     try{
     const response = await fetch(url);
     const details = await response.json();
 
     console.log(details);
-    createHtml(details);
+    createHtml(details.drinks[0]);
 
 } catch (error) {
     console.log(error);
@@ -28,13 +28,13 @@ async function drinkId() {
     }
 }
 
-drinkId();
+coctailId();
 
 function createHtml(details) {
-    detailsContainer.innerHTML = `  <h1>${details.idDrink}</h1>
+    detailsContainer.innerHTML = `  <h1><br></br>${details.idDrink}</h1>
                                     <div class="information">
-                                    <b>Drink:</b>${details.strInstructions}
-                                    <b>Alchol/Non alcohol:</b> ${details.strAlcoholic}
-                                    <b>Glass:</b>${details.strGlass}
+                                    <b>Instructions:</b>${details.strInstructions}
+                                    <b>Ingredients:</b> ${details.strIngredient1}
+                                    <b>Second Ingredient:</b>${details.strIngredient2}
                                     </div>`;
 }
